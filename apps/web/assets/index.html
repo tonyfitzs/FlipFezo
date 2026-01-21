@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlipFeso - Money Partner Application</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <div class="header-brand">
+          <div class="logo-mark" aria-hidden="true"></div>
+          <div class="logo-text">
+            FlipFeso - Your money partner, for your next flip project.
+          </div>
+        </div>
+        <button class="admin-gear" id="admin-gear-button" title="Admin Configuration" aria-label="Admin Configuration">
+          ⚙️
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-intro">
+        <div class="container">
+          <div class="hero-intro-content">
+            <h1 class="hero-title">
+              Your Money Partner for Property Success
+            </h1>
+            <p class="hero-subtitle">
+              If you have been around the property game for as long as I have,
+              you know one of the hardest and most difficult parts of the
+              process is getting money.
+            </p>
+            <div class="hero-features">
+              <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Small Lender, Big Results</h3>
+                <p>
+                  We are only a small lender, we are not a financial broker and
+                  we do not offer financial advice. We will partner with you on
+                  your project as long as it meets our criteria.
+                </p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>We Build Your Feasibility</h3>
+                <p>
+                  You have a choice: do your own feasibility the way you might
+                  have been shown by other lenders, or let us handle it. If you
+                  populate our questionnaire, we will build the feasibility for
+                  you, including conducting market analysis using tools like
+                  RPData and PropTrack.
+                </p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>Complete Suite of Products</h3>
+                <p>
+                  We have a whole suite of products designed for people like you.
+                  Products that can help you find your next project, conduct an
+                  initial feasibility without leaving your chair, and give you a
+                  short list of your next project. After all, the name of this
+                  game is buy, update, sell, next.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="flip-platform">
+        <div class="container">
+          <div class="platform-content">
+            <h2 class="platform-title">
+              But That's Only a Small Part of Flip
+            </h2>
+            <p class="platform-intro">
+              FlipFezo has inbuilt CRM, Project management, inventory control,
+              and accounting system that helps you keep track of everything. It
+              will even tell you how much your renos going to cost and if the
+              property you're looking at is over priced or not.
+            </p>
+            <div class="platform-grid">
+              <div class="platform-feature">
+                <h3>CRM System</h3>
+                <p>Manage all your contacts and leads in one place</p>
+              </div>
+              <div class="platform-feature">
+                <h3>Project Management</h3>
+                <p>Track every stage of your property projects</p>
+              </div>
+              <div class="platform-feature">
+                <h3>Inventory Control</h3>
+                <p>Keep track of materials and resources</p>
+              </div>
+              <div class="platform-feature">
+                <h3>Accounting System</h3>
+                <p>Monitor finances and profitability in real-time</p>
+              </div>
+              <div class="platform-feature">
+                <h3>Reno Cost Calculator</h3>
+                <p>Know exactly what your renovations will cost</p>
+              </div>
+              <div class="platform-feature">
+                <h3>Property Valuation</h3>
+                <p>Instantly know if a property is overpriced</p>
+              </div>
+            </div>
+            <a href="./application.html" class="partner-cta">
+              If you would like to partner with us, come on in
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Admin Configuration Modal -->
+    <div id="admin-modal" class="admin-modal is-hidden">
+      <div class="admin-modal-overlay"></div>
+      <div class="admin-modal-content">
+        <div class="admin-modal-header">
+          <h2>Admin Configuration</h2>
+          <button class="admin-modal-close" id="admin-modal-close">&times;</button>
+        </div>
+        <div id="admin-login" class="admin-section">
+          <p>Enter admin password to access configuration:</p>
+          <input type="password" id="admin-password" placeholder="Admin Password" class="admin-input" />
+          <button class="admin-button" id="admin-login-button">Login</button>
+          <p class="admin-error" id="admin-login-error"></p>
+        </div>
+        <div id="admin-config" class="admin-section is-hidden">
+          <h3>Email Configuration (SMTP)</h3>
+          <form id="email-config-form" class="admin-form">
+            <label>
+              SMTP Host
+              <input type="text" id="smtp-host" placeholder="smtp.gmail.com" class="admin-input" />
+            </label>
+            <label>
+              SMTP Port
+              <input type="number" id="smtp-port" placeholder="587" class="admin-input" />
+            </label>
+            <label>
+              SMTP Username (Email)
+              <input type="email" id="smtp-username" placeholder="your-email@gmail.com" class="admin-input" />
+            </label>
+            <label>
+              SMTP Password
+              <input type="password" id="smtp-password" placeholder="Your email password or app password" class="admin-input" />
+            </label>
+            <label>
+              From Email Address
+              <input type="email" id="smtp-from" placeholder="noreply@flipfezo.com.au" class="admin-input" />
+            </label>
+            <label>
+              From Name
+              <input type="text" id="smtp-from-name" placeholder="FlipFeso" class="admin-input" />
+            </label>
+            <div class="admin-form-actions">
+              <button type="submit" class="admin-button">Save Configuration</button>
+              <button type="button" class="admin-button admin-button-secondary" id="admin-test-email">Test Email</button>
+            </div>
+          </form>
+          <p class="admin-success" id="admin-config-success"></p>
+          <p class="admin-error" id="admin-config-error"></p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <span>FlipFeso</span>
+        <span>Money Partner Application</span>
+      </div>
+    </footer>
+    <script src="./main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "flipfezo-worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/worker.js"
+  },
+  "dependencies": {
+    "@azure/storage-blob": "^12.26.0",
+    "@azure/storage-queue": "^12.26.0"
+  }
+}

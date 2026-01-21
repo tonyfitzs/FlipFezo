@@ -1,0 +1,13 @@
+{
+  "name": "flipfezo-api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node src/index.js",
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "@azure/storage-queue": "^12.26.0",
+    "fastify": "^4.28.1"
+  }
+}

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlipFeso - Money Partner Application</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <div class="logo">FlipFeso</div>
+        <nav class="nav">
+          <a href="#beginning">The Beginning</a>
+          <a href="#how">How It Works</a>
+          <a href="#about">About</a>
+          <a href="#mission">Mission</a>
+          <a href="#video">Watch Video</a>
+        </nav>
+        <button class="cta-button">Register Your Interest</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="beginning" class="hero">
+        <div class="container hero-content">
+          <div class="hero-text">
+            <h1>FlipFeso - Money Partner Application</h1>
+            <p class="lead">Applicant details</p>
+            <p class="muted">
+              Please provide the details below. Desirable interest rate may
+              change depending on risk profile.
+            </p>
+            <form class="application-form">
+              <label>
+                Client name
+                <input type="text" placeholder="Client name" />
+              </label>
+              <label>
+                Client phone number
+                <input type="tel" placeholder="Client phone number" />
+              </label>
+              <label>
+                Client email
+                <input type="email" placeholder="Client email" />
+              </label>
+              <label>
+                Client address
+                <input type="text" placeholder="Client address" />
+              </label>
+              <label>
+                Money partner term (mounths)
+                <input type="text" placeholder="Money partner term (mounths)" />
+              </label>
+              <label>
+                Possibility of extention?
+                <div class="feasibility-actions" data-extension-actions>
+                  <button
+                    type="button"
+                    class="ghost-button"
+                    data-extension-choice="yes"
+                  >
+                    Yes
+                  </button>
+                  <button
+                    type="button"
+                    class="cta-button"
+                    data-extension-choice="no"
+                  >
+                    No
+                  </button>
+                </div>
+                <div class="is-hidden" data-extension-input>
+                  <input type="text" placeholder="Potential extention" />
+                </div>
+              </label>
+              <label>
+                Desirable interest rate
+                <input type="text" placeholder="Desirable interest rate" />
+              </label>
+              <label>
+                Firm name
+                <input type="text" placeholder="Firm name" />
+              </label>
+              <button class="cta-button" type="submit">Submit Application</button>
+            </form>
+          </div>
+          <div class="hero-image">
+            <div class="image-placeholder">
+              <span>Image placeholder</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <span>FlipFeso</span>
+        <span>Money Partner Application</span>
+      </div>
+    </footer>
+    <script src="./main.js"></script>
+  </body>
+</html>

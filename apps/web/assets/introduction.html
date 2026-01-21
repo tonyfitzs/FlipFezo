@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlipFeso - Introduction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <div class="header-brand">
+          <div class="logo-mark" aria-hidden="true"></div>
+          <div class="logo-text">
+            FlipFeso - Your money partner, for your next flip project.
+          </div>
+        </div>
+        <button class="admin-gear" id="admin-gear-button" title="Admin Configuration" aria-label="Admin Configuration">
+          ⚙️
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-content">
+          <div class="hero-text">
+            <form class="application-form" id="principle-workers-form" style="max-width: 600px; margin-bottom: 32px;">
+              <label style="font-size: 1.1rem; font-weight: 600; margin-bottom: 12px;">
+                How many principle workers will be on the project?
+                <input 
+                  type="number" 
+                  id="principle-workers-count" 
+                  min="1" 
+                  max="10" 
+                  value="1" 
+                  class="application-form input" 
+                  style="margin-top: 8px; font-size: 1rem;"
+                />
+              </label>
+            </form>
+            
+            <div id="cv-container" style="display: grid; gap: 32px; max-width: 800px;">
+              <!-- CV fields will be dynamically generated here -->
+            </div>
+            
+            <p class="muted" style="font-size: 1.1rem; margin-top: 24px;">
+              Upload a CV document for each principal worker listed above.
+            </p>
+            
+            <div style="margin-top: 48px; padding-top: 32px; border-top: 2px solid var(--border);">
+              <button id="conduct-feasibility-button" class="cta-button" style="font-size: 1.2rem; padding: 16px 32px;">
+                Conduct Feasibility
+              </button>
+              
+              <div id="feasibility-report" class="is-hidden" style="margin-top: 32px; padding: 32px; background: var(--surface); border-radius: 12px; border: 1px solid var(--border);">
+                <div id="feasibility-indicator" style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding: 16px; border-radius: 8px;">
+                  <span class="feasibility-status-indicator" id="status-indicator" style="width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;"></span>
+                  <h2 id="feasibility-status-text" style="font-size: 1.5rem; font-weight: 700; margin: 0;"></h2>
+                </div>
+                <div id="feasibility-report-content" style="line-height: 1.8; color: var(--text);">
+                  <!-- Report content will be inserted here -->
+                </div>
+              </div>
+              
+              <div id="feasibility-loading" class="is-hidden" style="margin-top: 32px; text-align: center; color: var(--muted);">
+                <p>Generating feasibility report...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Admin Configuration Modal -->
+    <div id="admin-modal" class="admin-modal is-hidden">
+      <div class="admin-modal-overlay"></div>
+      <div class="admin-modal-content">
+        <div class="admin-modal-header">
+          <h2>Admin Configuration</h2>
+          <button class="admin-modal-close" id="admin-modal-close">&times;</button>
+        </div>
+        <div id="admin-login" class="admin-section">
+          <p>Enter admin password to access configuration:</p>
+          <input type="password" id="admin-password" placeholder="Admin Password" class="admin-input" />
+          <button class="admin-button" id="admin-login-button">Login</button>
+          <p class="admin-error" id="admin-login-error"></p>
+        </div>
+        <div id="admin-config" class="admin-section is-hidden">
+          <h3>Email Configuration (SMTP)</h3>
+          <form id="email-config-form" class="admin-form">
+            <label>
+              SMTP Host
+              <input type="text" id="smtp-host" placeholder="smtp.gmail.com" class="admin-input" />
+            </label>
+            <label>
+              SMTP Port
+              <input type="number" id="smtp-port" placeholder="587" class="admin-input" />
+            </label>
+            <label>
+              SMTP Username (Email)
+              <input type="email" id="smtp-username" placeholder="your-email@gmail.com" class="admin-input" />
+            </label>
+            <label>
+              SMTP Password
+              <input type="password" id="smtp-password" placeholder="Your email password or app password" class="admin-input" />
+            </label>
+            <label>
+              From Email Address
+              <input type="email" id="smtp-from" placeholder="noreply@flipfezo.com.au" class="admin-input" />
+            </label>
+            <label>
+              From Name
+              <input type="text" id="smtp-from-name" placeholder="FlipFeso" class="admin-input" />
+            </label>
+            <div class="admin-form-actions">
+              <button type="submit" class="admin-button">Save Configuration</button>
+              <button type="button" class="admin-button admin-button-secondary" id="admin-test-email">Test Email</button>
+            </div>
+          </form>
+          <p class="admin-success" id="admin-config-success"></p>
+          <p class="admin-error" id="admin-config-error"></p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2024 FlipFeso. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="./main.js"></script>
+  </body>
+</html>

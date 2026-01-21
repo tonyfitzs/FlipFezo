@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlipFeso - Money Partner Application</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <div class="header-brand">
+          <div class="logo-mark" aria-hidden="true"></div>
+          <div class="logo-text">
+            FlipFeso - Your money partner, for your next flip project.
+          </div>
+        </div>
+        <button class="admin-gear" id="admin-gear-button" title="Admin Configuration" aria-label="Admin Configuration">
+          ⚙️
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section id="beginning" class="hero" data-main-view>
+        <div class="container hero-content">
+          <div class="hero-text">
+            <p class="lead">Ready to Get Started?</p>
+            <p class="muted">
+              Complete our application form below to begin your property journey
+              with FlipFezo. Desirable interest rate may change depending on
+              risk profile.
+            </p>
+            <form class="application-form">
+              <label>
+                Client name
+                <input
+                  type="text"
+                  placeholder="Client name"
+                  data-client-name
+                />
+              </label>
+              <label>
+                Client phone number
+                <input
+                  type="tel"
+                  placeholder="Client phone number"
+                  data-phone-input="client"
+                />
+                <span class="field-message" data-phone-message="client"></span>
+              </label>
+              <label>
+                Client email
+                <input
+                  type="email"
+                  placeholder="Client email"
+                  data-client-email
+                />
+              </label>
+              <label>
+                Client website
+                <input type="url" placeholder="Client website" />
+              </label>
+              <label>
+                Client address
+                <input type="text" placeholder="Client address" />
+              </label>
+              <label>
+                How much will you be contributing to this project financially?
+                <input
+                  type="text"
+                  placeholder="Your contribution amount"
+                  data-contribution-amount
+                />
+              </label>
+              <label>
+                Loan amount
+                <input
+                  type="text"
+                  placeholder="Loan amount"
+                  data-loan-amount
+                />
+              </label>
+              <label>
+                Money partner term (mounths)
+                <input
+                  type="text"
+                  placeholder="Money partner term (mounths)"
+                  data-term-months
+                />
+              </label>
+              <label>
+                Possibility of extention?
+                <div class="feasibility-actions" data-extension-actions>
+                  <button
+                    type="button"
+                    class="ghost-button"
+                    data-extension-choice="yes"
+                  >
+                    Yes
+                  </button>
+                  <button
+                    type="button"
+                    class="cta-button"
+                    data-extension-choice="no"
+                  >
+                    No
+                  </button>
+                </div>
+                <div class="is-hidden" data-extension-input>
+                  <input
+                    type="text"
+                    placeholder="Potential extention"
+                    data-extension-months
+                  />
+                </div>
+              </label>
+              <label>
+                Desirable interest rate (minimum 15% unless via prior arrangement)
+                <input
+                  type="text"
+                  placeholder="Desirable interest rate"
+                  data-interest-rate
+                />
+              </label>
+              <label>
+                Firm name
+                <input type="text" placeholder="Firm name" />
+              </label>
+              <label>
+                Phone number
+                <input
+                  type="tel"
+                  placeholder="Phone number"
+                  data-phone-input="solicitor"
+                />
+                <span class="field-message" data-phone-message="solicitor"></span>
+              </label>
+              <label>
+                Representative
+                <input type="text" placeholder="Representative" />
+              </label>
+            </form>
+          </div>
+          <div class="hero-image">
+            <img
+              class="hero-photo"
+              src="./moneypartners.tif"
+              alt="Money partner handover"
+            />
+            <div class="feasibility-prompt">
+              <p>
+                Upload your previously Prepared feasibility documents ( will
+                delay processing by at least 24 hours) ior use our customized
+                form to do it foir you
+              </p>
+              <div class="feasibility-actions" data-feasibility-actions>
+                <button
+                  type="button"
+                  class="ghost-button"
+                  data-feasibility-choice="yes"
+                >
+                  Yes
+                </button>
+                <button
+                  type="button"
+                  class="cta-button"
+                  data-feasibility-choice="no"
+                >
+                  No
+                </button>
+              </div>
+              <div class="upload-panel is-hidden" data-upload-panel>
+                <div class="upload-drop" data-upload-drop>
+                  <p>Drag and drop documents here</p>
+                  <span>or</span>
+                  <button
+                    type="button"
+                    class="ghost-button"
+                    data-upload-trigger
+                  >
+                    Upload document
+                  </button>
+                  <input
+                    type="file"
+                    class="upload-input"
+                    data-upload-input
+                    multiple
+                  />
+                </div>
+                <div class="upload-summary is-hidden" data-upload-summary>
+                  <p data-upload-count>
+                    You have uploaded 0 documents.
+                  </p>
+                  <ul class="upload-list" data-upload-list></ul>
+                  <p class="upload-question">
+                    Do you want to upload another document?
+                  </p>
+                  <p class="upload-client-id is-hidden" data-upload-client-id></p>
+                  <div class="upload-actions">
+                    <button
+                      type="button"
+                      class="ghost-button"
+                      data-upload-more="yes"
+                    >
+                      Yes
+                    </button>
+                    <button
+                      type="button"
+                      class="cta-button"
+                      data-upload-more="no"
+                    >
+                      No
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="thank-you is-hidden" data-thank-you>
+        <div class="confetti-burst" data-confetti aria-hidden="true"></div>
+        <div class="container thank-you-content">
+          <h2 data-thank-you-title>Thank you</h2>
+          <p class="disclaimer">
+            This is not financial advice and you are responsible to seek your own
+            legal counsel with regards to these matters.
+          </p>
+          <p data-client-id>Your client id is</p>
+          <p data-loan-summary></p>
+          <p data-thank-you-message>
+            We will be back in contact with you in 24 hours with any questions
+            or approval.
+          </p>
+          <p class="muted" data-thank-you-email></p>
+          <img
+            class="thank-you-image"
+            src="./sold.jfif"
+            alt="Sold"
+          />
+        </div>
+      </section>
+      
+      <div class="container" style="text-align: center; padding: 40px 0;">
+        <button id="test-email-button" class="test-email-button" style="margin-bottom: 20px;">
+          FlipFeso - Your money partner, for your next flip project.
+        </button>
+      </div>
+    </main>
+
+    <!-- Admin Configuration Modal -->
+    <div id="admin-modal" class="admin-modal is-hidden">
+      <div class="admin-modal-overlay"></div>
+      <div class="admin-modal-content">
+        <div class="admin-modal-header">
+          <h2>Admin Configuration</h2>
+          <button class="admin-modal-close" id="admin-modal-close">&times;</button>
+        </div>
+        <div id="admin-login" class="admin-section">
+          <p>Enter admin password to access configuration:</p>
+          <input type="password" id="admin-password" placeholder="Admin Password" class="admin-input" />
+          <button class="admin-button" id="admin-login-button">Login</button>
+          <p class="admin-error" id="admin-login-error"></p>
+        </div>
+        <div id="admin-config" class="admin-section is-hidden">
+          <h3>Email Configuration (SMTP)</h3>
+          <form id="email-config-form" class="admin-form">
+            <label>
+              SMTP Host
+              <input type="text" id="smtp-host" placeholder="smtp.gmail.com" class="admin-input" />
+            </label>
+            <label>
+              SMTP Port
+              <input type="number" id="smtp-port" placeholder="587" class="admin-input" />
+            </label>
+            <label>
+              SMTP Username (Email)
+              <input type="email" id="smtp-username" placeholder="your-email@gmail.com" class="admin-input" />
+            </label>
+            <label>
+              SMTP Password
+              <input type="password" id="smtp-password" placeholder="Your email password or app password" class="admin-input" />
+            </label>
+            <label>
+              From Email Address
+              <input type="email" id="smtp-from" placeholder="noreply@flipfezo.com.au" class="admin-input" />
+            </label>
+            <label>
+              From Name
+              <input type="text" id="smtp-from-name" placeholder="FlipFeso" class="admin-input" />
+            </label>
+            <div class="admin-form-actions">
+              <button type="submit" class="admin-button">Save Configuration</button>
+              <button type="button" class="admin-button admin-button-secondary" id="admin-test-email">Test Email</button>
+            </div>
+          </form>
+          <p class="admin-success" id="admin-config-success"></p>
+          <p class="admin-error" id="admin-config-error"></p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <span>FlipFeso</span>
+        <span>Money Partner Application</span>
+      </div>
+    </footer>
+    <script src="./main.js"></script>
+  </body>
+</html>

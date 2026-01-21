@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlipFeso - Contract of Sale</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <div class="header-brand">
+          <div class="logo-mark" aria-hidden="true"></div>
+          <div class="logo-text">
+            FlipFeso - Your money partner, for your next flip project.
+          </div>
+        </div>
+        <button class="admin-gear" id="admin-gear-button" title="Admin Configuration" aria-label="Admin Configuration">
+          ⚙️
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-content">
+          <div class="hero-text">
+            <p class="lead">Contract of Sale</p>
+            <p class="muted">
+              Please upload your contract of sale document.
+            </p>
+            <form class="application-form" id="contract-upload-form" style="margin-top: 32px; max-width: 600px;">
+              <div class="upload-panel">
+                <div class="upload-drop" id="contract-upload-drop">
+                  <p style="font-weight: 600; margin-bottom: 8px;">Drag and drop your contract of sale here</p>
+                  <span>or</span>
+                  <button
+                    type="button"
+                    class="ghost-button"
+                    id="contract-upload-trigger"
+                  >
+                    Browse Files
+                  </button>
+                  <input
+                    type="file"
+                    class="upload-input"
+                    id="contract-upload-input"
+                    accept=".pdf,.doc,.docx"
+                  />
+                </div>
+                <div class="upload-summary is-hidden" id="contract-upload-summary">
+                  <p id="contract-upload-count" style="font-weight: 600;">
+                    No file uploaded.
+                  </p>
+                  <ul class="upload-list" id="contract-upload-list"></ul>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      
+      <div class="container" style="text-align: center; padding: 40px 0;">
+        <a href="./comparable-sold.html" class="last-page-button">
+          Comparable Sold
+        </a>
+      </div>
+    </main>
+
+    <!-- Admin Configuration Modal -->
+    <div id="admin-modal" class="admin-modal is-hidden">
+      <div class="admin-modal-overlay"></div>
+      <div class="admin-modal-content">
+        <div class="admin-modal-header">
+          <h2>Admin Configuration</h2>
+          <button class="admin-modal-close" id="admin-modal-close">&times;</button>
+        </div>
+        <div id="admin-login" class="admin-section">
+          <p>Enter admin password to access configuration:</p>
+          <input type="password" id="admin-password" placeholder="Admin Password" class="admin-input" />
+          <button class="admin-button" id="admin-login-button">Login</button>
+          <p class="admin-error" id="admin-login-error"></p>
+        </div>
+        <div id="admin-config" class="admin-section is-hidden">
+          <h3>Email Configuration (SMTP)</h3>
+          <form id="email-config-form" class="admin-form">
+            <label>
+              SMTP Host
+              <input type="text" id="smtp-host" placeholder="smtp.gmail.com" class="admin-input" />
+            </label>
+            <label>
+              SMTP Port
+              <input type="number" id="smtp-port" placeholder="587" class="admin-input" />
+            </label>
+            <label>
+              SMTP Username (Email)
+              <input type="email" id="smtp-username" placeholder="your-email@gmail.com" class="admin-input" />
+            </label>
+            <label>
+              SMTP Password
+              <input type="password" id="smtp-password" placeholder="Your email password or app password" class="admin-input" />
+            </label>
+            <label>
+              From Email Address
+              <input type="email" id="smtp-from" placeholder="noreply@flipfezo.com.au" class="admin-input" />
+            </label>
+            <label>
+              From Name
+              <input type="text" id="smtp-from-name" placeholder="FlipFeso" class="admin-input" />
+            </label>
+            <div class="admin-form-actions">
+              <button type="submit" class="admin-button">Save Configuration</button>
+              <button type="button" class="admin-button admin-button-secondary" id="admin-test-email">Test Email</button>
+            </div>
+          </form>
+          <p class="admin-success" id="admin-config-success"></p>
+          <p class="admin-error" id="admin-config-error"></p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2024 FlipFeso. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="./main.js"></script>
+  </body>
+</html>

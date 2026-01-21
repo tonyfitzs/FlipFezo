@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlipFeso - Customized Feasibility Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <div class="header-brand">
+          <div class="logo-mark" aria-hidden="true"></div>
+          <div class="logo-text">
+            FlipFeso - Your money partner, for your next flip project.
+          </div>
+        </div>
+        <button class="admin-gear" id="admin-gear-button" title="Admin Configuration" aria-label="Admin Configuration">
+          ⚙️
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-content">
+          <div class="hero-text">
+            <p class="lead">Customized Feasibility Form</p>
+            <p class="muted">
+              Please fill out the following information so we can build your feasibility for you.
+              We will conduct market analysis using tools like RPData and PropTrack.
+            </p>
+            <form class="application-form" id="feasibility-form">
+              <div id="feasibility-form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 24px; align-items: start;">
+                <!-- Left Column: Cost Estimates -->
+                <div style="align-items: start; vertical-align: top;">
+                  <h3 style="margin-bottom: 16px; font-size: 1.2rem; font-weight: 700; line-height: 1.4;">Purchase Cost Estimates</h3>
+                  <div style="height: 22px; margin-bottom: 0; visibility: hidden;"></div>
+                  
+                  <label>
+                    Purchase Price
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="purchase-price" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Market Expected Value
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="market-expected-value" placeholder="Auto-calculated using PropTrack & RP Data" readonly class="application-form input" style="flex: 1; background: var(--surface);" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Stamp Duty
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="stamp-duty" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Legal & Accounting Fees
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="legal-accounting" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Renovations & Building Works estimate
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="renovations" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Miscellaneous Costs
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="miscellaneous" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Holding Costs
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="holding-costs" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Finance Costs
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="finance-costs" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Contingency
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="contingency" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Sales Commission & Marketing
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="sales-commission" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  
+                  <!-- Other items for Purchase Cost Estimates (16 items to make 25 total) -->
+                  <label>
+                    Other 1
+                    <input type="text" id="expense-other-1-name" placeholder="Description" class="application-form input" style="margin-bottom: 4px;" />
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="expense-other-1" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Other 2
+                    <input type="text" id="expense-other-2-name" placeholder="Description" class="application-form input" style="margin-bottom: 4px;" />
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="expense-other-2" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Other 3
+                    <input type="text" id="expense-other-3-name" placeholder="Description" class="application-form input" style="margin-bottom: 4px;" />
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="expense-other-3" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Other 4
+                    <input type="text" id="expense-other-4-name" placeholder="Description" class="application-form input" style="margin-bottom: 4px;" />
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="expense-other-4" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Other 5
+                    <input type="text" id="expense-other-5-name" placeholder="Description" class="application-form input" style="margin-bottom: 4px;" />
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="expense-other-5" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Other 6
+                    <input type="text" id="expense-other-6-name" placeholder="Description" class="application-form input" style="margin-bottom: 4px;" />
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="expense-other-6" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Other 7
+                    <input type="text" id="expense-other-7-name" placeholder="Description" class="application-form input" style="margin-bottom: 4px;" />
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="expense-other-7" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Other 8
+                    <input type="text" id="expense-other-8-name" placeholder="Description" class="application-form input" style="margin-bottom: 4px;" />
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="expense-other-8" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Other 9
+                    <input type="text" id="expense-other-9-name" placeholder="Description" class="application-form input" style="margin-bottom: 4px;" />
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="expense-other-9" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Other 10
+                    <input type="text" id="expense-other-10-name" placeholder="Description" class="application-form input" style="margin-bottom: 4px;" />
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="expense-other-10" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Other 11
+                    <input type="text" id="expense-other-11-name" placeholder="Description" class="application-form input" style="margin-bottom: 4px;" />
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="expense-other-11" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Other 12
+                    <input type="text" id="expense-other-12-name" placeholder="Description" class="application-form input" style="margin-bottom: 4px;" />
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="expense-other-12" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Other 13
+                    <input type="text" id="expense-other-13-name" placeholder="Description" class="application-form input" style="margin-bottom: 4px;" />
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="expense-other-13" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Other 14
+                    <input type="text" id="expense-other-14-name" placeholder="Description" class="application-form input" style="margin-bottom: 4px;" />
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="expense-other-14" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Other 15
+                    <input type="text" id="expense-other-15-name" placeholder="Description" class="application-form input" style="margin-bottom: 4px;" />
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="expense-other-15" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Other 16
+                    <input type="text" id="expense-other-16-name" placeholder="Description" class="application-form input" style="margin-bottom: 4px;" />
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="expense-other-16" placeholder="$0" data-expense class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+
+                <!-- Right Column: Renovation Breakdown -->
+                <div style="align-items: start; vertical-align: top; margin-left: 25%;">
+                  <h3 style="margin-bottom: 16px; font-size: 1.2rem; font-weight: 700; line-height: 1.4;">Renovations & Building Works estimate</h3>
+                  
+                  <label>
+                    Demo & waste removal
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-demo" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Garden & landscape
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-garden" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    New side fence 50%
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-fence" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Paint interior
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-paint" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    New flooring - carpet in 4 bedrooms, hybrid in rest
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-flooring" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Electrician - new lighting, etc
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-electrician" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    New blinds
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-blinds" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    New kitchen
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-kitchen" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    New laundry
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-laundry" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    New bathroom/toilet
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-bathroom" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Add kitchenette in 2nd dwelling
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-kitchenette" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Upgrade ducted heating and/or split systems
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-heating" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Replace skirtings
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-skirtings" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Refresh garage
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-garage" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Convert Family room to bedroom with ensuite/WIR
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-conversion" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Project Management
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-project-management" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Unforeseen circumstances
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-unforeseen" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Insurance
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-insurance" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+
+                  <!-- Other items for Renovations & Building Works estimate (7 items to make 25 total) -->
+                  <label>
+                    Other 1
+                    <input type="text" id="reno-other-1-name" placeholder="Description" class="application-form input" style="margin-bottom: 4px;" />
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-other-1" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Other 2
+                    <input type="text" id="reno-other-2-name" placeholder="Description" class="application-form input" style="margin-bottom: 4px;" />
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-other-2" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Other 3
+                    <input type="text" id="reno-other-3-name" placeholder="Description" class="application-form input" style="margin-bottom: 4px;" />
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-other-3" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Other 4
+                    <input type="text" id="reno-other-4-name" placeholder="Description" class="application-form input" style="margin-bottom: 4px;" />
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-other-4" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Other 5
+                    <input type="text" id="reno-other-5-name" placeholder="Description" class="application-form input" style="margin-bottom: 4px;" />
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-other-5" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Other 6
+                    <input type="text" id="reno-other-6-name" placeholder="Description" class="application-form input" style="margin-bottom: 4px;" />
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-other-6" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+                  <label>
+                    Other 7
+                    <input type="text" id="reno-other-7-name" placeholder="Description" class="application-form input" style="margin-bottom: 4px;" />
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="text" id="reno-other-7" placeholder="$0" data-reno-item class="application-form input" style="flex: 1;" />
+                      <div style="display: flex; align-items: center; gap: 4px;">
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                        <span class="field-indicator"></span>
+                      </div>
+                    </div>
+                  </label>
+
+                  <div style="margin-top: 24px; padding-top: 16px; border-top: 2px solid var(--border);">
+                    <label style="font-weight: 700;">
+                      Subtotal
+                      <input type="text" id="reno-subtotal" placeholder="$0" readonly class="application-form input" style="background: var(--surface); font-weight: 700;" />
+                    </label>
+                    <label>
+                      Add 10% contingency
+                      <input type="text" id="reno-contingency" placeholder="$0" readonly class="application-form input" style="background: var(--surface);" />
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div id="feasibility-results" style="margin-top: 32px; padding: 24px; background: var(--surface); border-radius: 12px; border: 1px solid var(--border); display: none;">
+                <h3 style="margin-bottom: 16px; font-size: 1.2rem; font-weight: 700;">Feasibility Summary</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+                  <div>
+                    <strong>Total Expenses:</strong>
+                    <div id="total-expenses" style="font-size: 1.1rem; margin-top: 4px;">$0</div>
+                  </div>
+                  <div>
+                    <strong>Total Income:</strong>
+                    <div id="total-income" style="font-size: 1.1rem; margin-top: 4px;">$0</div>
+                  </div>
+                </div>
+                <div style="padding-top: 16px; border-top: 2px solid var(--border);">
+                  <strong style="font-size: 1.2rem;">PROFIT:</strong>
+                  <div id="profit" style="font-size: 1.5rem; font-weight: 700; margin-top: 8px;">$0</div>
+                </div>
+              </div>
+
+              <a href="./contract-of-sale.html" class="cta-button" style="margin-top: 24px; display: inline-block; text-decoration: none; text-align: center;">Contract of Sale</a>
+
+            </form>
+          </div>
+        </div>
+      </section>
+      
+      <div class="container" style="text-align: center; padding: 40px 0;">
+        <a href="./application.html" class="last-page-button">
+          Back to Application
+        </a>
+      </div>
+    </main>
+
+    <!-- Admin Configuration Modal -->
+    <div id="admin-modal" class="admin-modal is-hidden">
+      <div class="admin-modal-overlay"></div>
+      <div class="admin-modal-content">
+        <div class="admin-modal-header">
+          <h2>Admin Configuration</h2>
+          <button class="admin-modal-close" id="admin-modal-close">&times;</button>
+        </div>
+        <div id="admin-login" class="admin-section">
+          <p>Enter admin password to access configuration:</p>
+          <input type="password" id="admin-password" placeholder="Admin Password" class="admin-input" />
+          <button class="admin-button" id="admin-login-button">Login</button>
+          <p class="admin-error" id="admin-login-error"></p>
+        </div>
+        <div id="admin-config" class="admin-section is-hidden">
+          <h3>Email Configuration (SMTP)</h3>
+          <form id="email-config-form" class="admin-form">
+            <label>
+              SMTP Host
+              <input type="text" id="smtp-host" placeholder="smtp.gmail.com" class="admin-input" />
+            </label>
+            <label>
+              SMTP Port
+              <input type="number" id="smtp-port" placeholder="587" class="admin-input" />
+            </label>
+            <label>
+              SMTP Username (Email)
+              <input type="email" id="smtp-username" placeholder="your-email@gmail.com" class="admin-input" />
+            </label>
+            <label>
+              SMTP Password
+              <input type="password" id="smtp-password" placeholder="Your email password or app password" class="admin-input" />
+            </label>
+            <label>
+              From Email Address
+              <input type="email" id="smtp-from" placeholder="noreply@flipfezo.com.au" class="admin-input" />
+            </label>
+            <label>
+              From Name
+              <input type="text" id="smtp-from-name" placeholder="FlipFeso" class="admin-input" />
+            </label>
+            <div class="admin-form-actions">
+              <button type="submit" class="admin-button">Save Configuration</button>
+              <button type="button" class="admin-button admin-button-secondary" id="admin-test-email">Test Email</button>
+            </div>
+          </form>
+          <p class="admin-success" id="admin-config-success"></p>
+          <p class="admin-error" id="admin-config-error"></p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <span>FlipFeso</span>
+        <span>Money Partner Application</span>
+      </div>
+    </footer>
+    <script src="./main.js"></script>
+  </body>
+</html>
