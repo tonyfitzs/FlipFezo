@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Splash Screen - FitSizo</title>
+    <link rel="stylesheet" href="./splash.css" />
+  </head>
+  <body style="background-color: #000000; color: white; margin: 0;">
+    <div class="splash-container">
+      <img src="./diamond.svg" alt="Diamond" class="diamond-img" />
+      <img src="./dollar.png" alt="Dollar Sign" class="dollar-img" />
+      <img src="./side-elements.png" alt="Side Elements" class="side-elements-img" />
+
+      <div class="step-icons">
+        <span class="step-item step-1">Feasibility</span>
+        <span class="step-item step-2">Finance</span>
+        <span class="step-item step-3">Purchase</span>
+        <span class="step-item step-4">Update</span>
+        <span class="step-item step-5">Sell</span>
+        <img src="./arrow-repeat.png" alt="Repeat Arrow" class="repeat-arrow" />
+        <span class="step-repeat">Repeat</span>
+      </div>
+
+      <div class="final-message">
+        <h1>Welcome to FitSizo</h1>
+        <p>Your Money Partner Solution</p>
+      </div>
+    </div>
+    <script>
+      setTimeout(() => {
+        document.querySelector('.splash-container').classList.add('fade-out-elements');
+      }, 6000);
+    </script>
+  </body>
+</html>

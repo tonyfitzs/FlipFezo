@@ -13,6 +13,16 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <nav class="nav-banner">
+      <div class="container nav-banner-content">
+        <a href="./index.html" class="nav-banner-link">Home</a>
+        <a href="./application.html" class="nav-banner-link">Application</a>
+        <a href="./introduction.html" class="nav-banner-link">Project Team</a>
+        <a href="./feasibility.html" class="nav-banner-link">Feasibility</a>
+        <a href="./comparable-sold.html" class="nav-banner-link active">Comparable Sold</a>
+        <a href="./contract-of-sale.html" class="nav-banner-link">Contract of Sale</a>
+      </div>
+    </nav>
     <header class="site-header">
       <div class="container header-content">
         <div class="header-brand">
@@ -21,7 +31,7 @@
             FlipFeso - Your money partner, for your next flip project.
           </div>
         </div>
-        <button class="admin-gear" id="admin-gear-button" title="Admin Configuration" aria-label="Admin Configuration">
+        <button class="admin-gear" id="admin-gear-button" title="Setup" aria-label="Setup (admin only)">
           ⚙️
         </button>
       </div>
@@ -96,12 +106,12 @@
       </div>
     </main>
 
-    <!-- Admin Configuration Modal -->
+    <!-- Setup (admin-only): email, notifications, environment -->
     <div id="admin-modal" class="admin-modal is-hidden">
       <div class="admin-modal-overlay"></div>
       <div class="admin-modal-content">
         <div class="admin-modal-header">
-          <h2>Admin Configuration</h2>
+          <h2>Setup</h2>
           <button class="admin-modal-close" id="admin-modal-close">&times;</button>
         </div>
         <div id="admin-login" class="admin-section">

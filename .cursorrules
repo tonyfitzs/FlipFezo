@@ -1,0 +1,28 @@
+# FlipFezo Project Rules
+
+## Deployment
+
+- When user types "deploy" in terminal, run: `D:\GitHub\FlipIQ\FlipFezo\deploy.ps1`
+- The deploy script uses this default commit message: "Update FlipFezo: Money Partner Application - web assets, navigation, and features"
+- User can override with custom message: `deploy "Custom message here"`
+
+## Project Structure
+
+- Main web assets: `apps/web/assets/`
+- Splash screen: `apps/web/assets/splash/`
+- React components: `apps/web/src/components/` (if using React)
+
+## Navigation Order
+
+1. Home (index.html)
+2. Application (application.html)
+3. Project Team (introduction.html) - was "Introduction"
+4. Feasibility (feasibility.html)
+5. Comparable Sold (comparable-sold.html)
+6. Contract of Sale (contract-of-sale.html)
+
+## Setup (Admin-Only)
+
+- Setup gear (⚙️) is hidden by default
+- Visible only with `?setup=1` in URL
+- Admin-only configuration for email, notifications, environment

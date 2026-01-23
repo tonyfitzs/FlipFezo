@@ -13,6 +13,16 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <nav class="nav-banner">
+      <div class="container nav-banner-content">
+        <a href="./index.html" class="nav-banner-link">Home</a>
+        <a href="./application.html" class="nav-banner-link active">Application</a>
+        <a href="./introduction.html" class="nav-banner-link">Project Team</a>
+        <a href="./feasibility.html" class="nav-banner-link">Feasibility</a>
+        <a href="./comparable-sold.html" class="nav-banner-link">Comparable Sold</a>
+        <a href="./contract-of-sale.html" class="nav-banner-link">Contract of Sale</a>
+      </div>
+    </nav>
     <header class="site-header">
       <div class="container header-content">
         <div class="header-brand">
@@ -21,7 +31,7 @@
             FlipFeso - Your money partner, for your next flip project.
           </div>
         </div>
-        <button class="admin-gear" id="admin-gear-button" title="Admin Configuration" aria-label="Admin Configuration">
+        <button class="admin-gear" id="admin-gear-button" title="Setup" aria-label="Setup (admin only)">
           ⚙️
         </button>
       </div>
@@ -38,12 +48,55 @@
               risk profile.
             </p>
             <form class="application-form">
+              <!-- Client Information -->
               <label>
                 Client name
                 <input
                   type="text"
                   placeholder="Client name"
                   data-client-name
+                />
+              </label>
+              <label>
+                Client office phone number
+                <input
+                  type="tel"
+                  placeholder="Client office phone number"
+                  data-client-office-phone
+                />
+              </label>
+              <label>
+                Client website
+                <input type="url" placeholder="Client website" data-client-website />
+              </label>
+              <label>
+                Client address
+                <input type="text" placeholder="Client address" data-client-address />
+              </label>
+
+              <!-- Contact Information -->
+              <label>
+                Contact firstname
+                <input
+                  type="text"
+                  placeholder="Contact firstname"
+                  data-contact-firstname
+                />
+              </label>
+              <label>
+                Contact surname
+                <input
+                  type="text"
+                  placeholder="Contact surname"
+                  data-contact-surname
+                />
+              </label>
+              <label>
+                Contact email
+                <input
+                  type="email"
+                  placeholder="Contact email"
+                  data-contact-email
                 />
               </label>
               <label>
@@ -55,30 +108,50 @@
                 />
                 <span class="field-message" data-phone-message="client"></span>
               </label>
+
+              <!-- Property Information -->
               <label>
-                Client email
-                <input
-                  type="email"
-                  placeholder="Client email"
-                  data-client-email
-                />
-              </label>
-              <label>
-                Client website
-                <input type="url" placeholder="Client website" />
-              </label>
-              <label>
-                Client address
-                <input type="text" placeholder="Client address" />
-              </label>
-              <label>
-                How much will you be contributing to this project financially?
+                Proposed acquisition address
                 <input
                   type="text"
-                  placeholder="Your contribution amount"
-                  data-contribution-amount
+                  placeholder="Proposed acquisition address"
+                  data-proposed-acquisition-address
                 />
               </label>
+              <label>
+                Proposed acquisition price
+                <input
+                  type="text"
+                  placeholder="Proposed acquisition price"
+                  data-proposed-acquisition-price
+                />
+              </label>
+              <label>
+                Proposed acquisition valuation
+                <input
+                  type="text"
+                  placeholder="Proposed acquisition valuation"
+                  data-proposed-acquisition-valuation
+                />
+              </label>
+              <label>
+                Purchase price
+                <input
+                  type="text"
+                  placeholder="Purchase price"
+                  data-purchase-price
+                />
+              </label>
+              <label>
+                State
+                <input
+                  type="text"
+                  placeholder="State"
+                  data-state
+                />
+              </label>
+
+              <!-- Loan Details -->
               <label>
                 Loan amount
                 <input
@@ -88,15 +161,23 @@
                 />
               </label>
               <label>
-                Money partner term (mounths)
+                Term months
                 <input
                   type="text"
-                  placeholder="Money partner term (mounths)"
+                  placeholder="Term months"
                   data-term-months
                 />
               </label>
               <label>
-                Possibility of extention?
+                Term years
+                <input
+                  type="text"
+                  placeholder="Term years"
+                  data-term-years
+                />
+              </label>
+              <label>
+                Possibility of extension?
                 <div class="feasibility-actions" data-extension-actions>
                   <button
                     type="button"
@@ -116,22 +197,118 @@
                 <div class="is-hidden" data-extension-input>
                   <input
                     type="text"
-                    placeholder="Potential extention"
+                    placeholder="Extension months"
                     data-extension-months
                   />
                 </div>
               </label>
               <label>
-                Desirable interest rate (minimum 15% unless via prior arrangement)
+                Interest rate %
                 <input
                   type="text"
-                  placeholder="Desirable interest rate"
+                  placeholder="Interest rate %"
                   data-interest-rate
                 />
               </label>
               <label>
+                Rate decimal
+                <input
+                  type="text"
+                  placeholder="Rate decimal"
+                  data-rate-decimal
+                />
+              </label>
+
+              <!-- Financial Calculations -->
+              <label>
+                How much will you be contributing to this project financially?
+                <input
+                  type="text"
+                  placeholder="Client contribution"
+                  data-contribution-amount
+                />
+              </label>
+              <label>
+                Monthly interest
+                <input
+                  type="text"
+                  placeholder="Monthly interest"
+                  data-monthly-interest
+                />
+              </label>
+              <label>
+                Total interest
+                <input
+                  type="text"
+                  placeholder="Total interest"
+                  data-total-interest
+                />
+              </label>
+              <label>
+                Total repayable
+                <input
+                  type="text"
+                  placeholder="Total repayable"
+                  data-total-repayable
+                />
+              </label>
+
+              <!-- Lender Information -->
+              <label>
+                Number of other lenders
+                <input
+                  type="text"
+                  placeholder="Number of other lenders"
+                  data-number-other-lenders
+                />
+              </label>
+              <label>
+                What order is FlipFeso with respect to money lenders?
+                <input
+                  type="text"
+                  placeholder="FlipFeso order (e.g., 1st, 2nd, 3rd)"
+                  data-flipfeso-order
+                />
+              </label>
+
+              <!-- Costs -->
+              <label>
+                Stamp duty
+                <input
+                  type="text"
+                  placeholder="Stamp duty"
+                  data-stamp-duty
+                />
+              </label>
+              <label>
+                Legal costs
+                <input
+                  type="text"
+                  placeholder="Legal costs"
+                  data-legal-costs
+                />
+              </label>
+              <label>
+                Total fees
+                <input
+                  type="text"
+                  placeholder="Total fees"
+                  data-total-fees
+                />
+              </label>
+              <label>
+                All-in cost
+                <input
+                  type="text"
+                  placeholder="All-in cost"
+                  data-all-in-cost
+                />
+              </label>
+
+              <!-- Solicitor Information -->
+              <label>
                 Firm name
-                <input type="text" placeholder="Firm name" />
+                <input type="text" placeholder="Firm name" data-firm-name />
               </label>
               <label>
                 Phone number
@@ -144,7 +321,7 @@
               </label>
               <label>
                 Representative
-                <input type="text" placeholder="Representative" />
+                <input type="text" placeholder="Representative" data-representative />
               </label>
             </form>
           </div>
@@ -255,12 +432,12 @@
       </div>
     </main>
 
-    <!-- Admin Configuration Modal -->
+    <!-- Setup (admin-only): email, notifications, environment -->
     <div id="admin-modal" class="admin-modal is-hidden">
       <div class="admin-modal-overlay"></div>
       <div class="admin-modal-content">
         <div class="admin-modal-header">
-          <h2>Admin Configuration</h2>
+          <h2>Setup</h2>
           <button class="admin-modal-close" id="admin-modal-close">&times;</button>
         </div>
         <div id="admin-login" class="admin-section">

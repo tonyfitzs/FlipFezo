@@ -709,7 +709,7 @@ if (testEmailButton) {
   });
 }
 
-// Admin Configuration functionality
+// Setup (admin-only): email, notifications, environment. Not customer-facing.
 const ADMIN_PASSWORD = "admin123"; // Change this to a secure password
 const ADMIN_STORAGE_KEY = "flipfesoAdminAuthenticated";
 const EMAIL_CONFIG_STORAGE_KEY = "flipfesoEmailConfig";
@@ -726,6 +726,35 @@ const emailConfigForm = document.getElementById("email-config-form");
 const adminConfigSuccess = document.getElementById("admin-config-success");
 const adminConfigError = document.getElementById("admin-config-error");
 const adminTestEmailButton = document.getElementById("admin-test-email");
+
+const SETUP_MODE_KEY = "flipfesoSetupMode";
+
+/**
+ * Setup (gear) is admin-only, not customer-facing.
+ * Visible only when ?setup=1 is in the URL. Do not expose ?setup=1 to customers in production.
+ */
+function initSetupVisibility() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("setup") === "1" || params.get("admin") === "1") {
+      sessionStorage.setItem(SETUP_MODE_KEY, "true");
+      const url = new URL(window.location.href);
+      url.searchParams.delete("setup");
+      url.searchParams.delete("admin");
+      const clean = url.pathname + (url.search || "") + (url.hash || "");
+      window.history.replaceState({}, "", clean);
+    }
+    const inSetupMode = sessionStorage.getItem(SETUP_MODE_KEY) === "true";
+    if (adminGearButton) {
+      if (inSetupMode) adminGearButton.classList.add("visible");
+      else adminGearButton.classList.remove("visible");
+    }
+  } catch (e) {
+    if (adminGearButton) adminGearButton.classList.remove("visible");
+  }
+}
+
+initSetupVisibility();
 
 // Check if admin is already authenticated
 const isAdminAuthenticated = () => {
@@ -1453,7 +1482,7 @@ const conductFeasibility = async () => {
   if (!apiUrl) {
     alert("Unable to connect to the server. Please ensure the API server is running on port 8090.");
     conductFeasibilityButton.disabled = false;
-    conductFeasibilityButton.textContent = "Conduct Feasibility";
+    conductFeasibilityButton.textContent = "Continue to Feasibility";
     feasibilityLoading.classList.add("is-hidden");
     return;
   }
@@ -1479,7 +1508,7 @@ const conductFeasibility = async () => {
     feasibilityLoading.classList.add("is-hidden");
   } finally {
     conductFeasibilityButton.disabled = false;
-    conductFeasibilityButton.textContent = "Conduct Feasibility";
+    conductFeasibilityButton.textContent = "Continue to Feasibility";
   }
 };
 
@@ -1672,3 +1701,151 @@ if (document.readyState === 'loading') {
 } else {
   initCvFields();
 }
+
+// Video Modal functionality with crossfade
+const videoModal = document.getElementById("video-modal");
+const videoTriggerCard = document.getElementById("video-trigger-card");
+const videoModalClose = document.getElementById("video-modal-close");
+const videoIframe = document.getElementById("video-iframe");
+const videoModalOverlay = videoModal?.querySelector(".video-modal-overlay");
+
+// InVideo video URL
+// IMPORTANT: InVideo share links may not work directly in iframes due to security restrictions.
+// You may need to:
+// 1. Get the embed code from InVideo platform (look for "Embed" or "Share" options)
+// 2. Or use the watch URL format if available
+// 3. Or host the video on YouTube/Vimeo and use their embed URL instead
+
+const VIDEO_SHARE_URL = "https://ai.invideo.io/workspace/023e8390-9abc-44b9-802a-06f8de640734/v40-copilot/01eeff14-a38c-4e33-a258-369bc37ea39b";
+
+// Try different embed formats
+const VIDEO_ID = "01eeff14-a38c-4e33-a258-369bc37ea39b";
+// Format 1: Watch URL with embed
+const VIDEO_EMBED_URL = `https://ai.invideo.io/watch/${VIDEO_ID}?embed=true&autoplay=1&mute=0`;
+// Format 2: Alternative embed format (if Format 1 doesn't work)
+const VIDEO_EMBED_ALT = VIDEO_SHARE_URL.replace('/workspace/', '/embed/');
+
+let isVideoModalOpen = false;
+let videoEndCheckInterval = null;
+
+function showVideoModal() {
+  if (!videoModal || !videoIframe) return;
+  
+  // Fade out the page content
+  document.body.style.transition = "opacity 0.6s ease-in-out";
+  document.body.style.opacity = "0";
+  
+  // Show modal and start crossfade in
+  videoModal.classList.remove("is-hidden");
+  
+  // Trigger crossfade animation
+  requestAnimationFrame(() => {
+    videoModal.classList.add("showing");
+    // Load video after a brief delay to ensure smooth transition
+    setTimeout(() => {
+      // Try embed URL first
+      videoIframe.src = VIDEO_EMBED_URL;
+      
+      // Fallback: If embed URL doesn't work, try alternative formats
+      // Note: Due to cross-origin restrictions, iframe errors may not fire
+      // You may need to manually test and update the URL format
+      // or get the embed code directly from InVideo platform
+      
+      document.body.style.overflow = "hidden";
+      isVideoModalOpen = true;
+      
+      // Start checking for video end
+      startVideoEndCheck();
+    }, 100);
+  });
+}
+
+function hideVideoModal() {
+  if (!videoModal || !videoIframe) return;
+  
+  // Stop checking for video end
+  stopVideoEndCheck();
+  
+  // Crossfade out
+  videoModal.classList.remove("showing");
+  
+  // Clear video and fade back to page
+  setTimeout(() => {
+    videoIframe.src = "";
+    videoModal.classList.add("is-hidden");
+    document.body.style.overflow = "";
+    document.body.style.opacity = "1";
+    isVideoModalOpen = false;
+  }, 800); // Match CSS transition duration
+}
+
+function startVideoEndCheck() {
+  // Listen for postMessage events from InVideo iframe
+  window.addEventListener('message', handleVideoMessage);
+  
+  // Fallback: If InVideo doesn't send postMessage events, 
+  // you may need to manually close or get the video duration from InVideo API
+  // For now, we'll rely on postMessage or manual close
+}
+
+function stopVideoEndCheck() {
+  if (videoEndCheckInterval) {
+    clearInterval(videoEndCheckInterval);
+    videoEndCheckInterval = null;
+  }
+  window.removeEventListener('message', handleVideoMessage);
+}
+
+function handleVideoMessage(event) {
+  // Listen for video end events from InVideo iframe
+  // InVideo may send different event formats - adjust as needed
+  if (event.origin.includes('invideo.io') || event.origin.includes('ai.invideo.io')) {
+    const data = event.data;
+    
+    // Check for various video end event formats
+    if (
+      (typeof data === 'object' && (
+        data.type === 'video-ended' || 
+        data.event === 'ended' || 
+        data.eventType === 'ended' ||
+        data.action === 'videoEnded'
+      )) ||
+      (typeof data === 'string' && data.includes('ended'))
+    ) {
+      hideVideoModal();
+    }
+  }
+}
+
+// Open video modal on card click
+if (videoTriggerCard) {
+  videoTriggerCard.addEventListener("click", (e) => {
+    e.preventDefault();
+    showVideoModal();
+  });
+}
+
+// Close video modal
+if (videoModalClose) {
+  videoModalClose.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    hideVideoModal();
+  });
+}
+
+// Close on overlay click
+if (videoModalOverlay) {
+  videoModalOverlay.addEventListener("click", (e) => {
+    if (e.target === videoModalOverlay) {
+      hideVideoModal();
+    }
+  });
+}
+
+// Close on Escape key
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && isVideoModalOpen) {
+    hideVideoModal();
+  }
+});

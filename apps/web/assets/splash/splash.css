@@ -1,0 +1,161 @@
+/* Full-screen black background */
+body {
+  background-color: #000000;
+  color: white;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+/* Centered container */
+.splash-container {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Diamond image - appears first (0s) */
+.diamond-img {
+  width: 140px;
+  height: auto;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0s forwards;
+}
+
+/* Dollar sign - appears at 0.25s */
+.dollar-img {
+  width: 80px;
+  height: auto;
+  margin: 0 auto 20px;
+  display: block;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.25s forwards;
+}
+
+/* Side elements - appears at 0.35s */
+.side-elements-img {
+  width: 200px;
+  height: auto;
+  margin: 0 auto 30px;
+  display: block;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.35s forwards;
+}
+
+/* Step icons container */
+.step-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 30px 0;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out 0.85s forwards;
+}
+
+/* Step items - staggered animation starting at 0.85s */
+.step-item {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: white;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.step-item.step-1 {
+  animation-delay: 0.85s;
+}
+
+.step-item.step-2 {
+  animation-delay: 1.1s;
+}
+
+.step-item.step-3 {
+  animation-delay: 1.35s;
+}
+
+.step-item.step-4 {
+  animation-delay: 1.6s;
+}
+
+.step-item.step-5 {
+  animation-delay: 1.85s;
+}
+
+/* Repeat arrow */
+.repeat-arrow {
+  width: 40px;
+  height: auto;
+  opacity: 0;
+  animation: fadeIn 0.6s ease-out 2.1s forwards;
+}
+
+/* Repeat text */
+.step-repeat {
+  padding: 8px 16px;
+  background: rgba(0, 240, 255, 0.2);
+  border: 1px solid rgba(0, 240, 255, 0.5);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #00f0ff;
+  opacity: 0;
+  animation: fadeIn 0.6s ease-out 2.1s forwards;
+}
+
+/* Final message - appears at 6.5s */
+.final-message {
+  opacity: 0;
+  text-align: center;
+  margin-top: 40px;
+  animation: showFinal 1s ease-in-out 6.5s forwards;
+}
+
+.final-message h1 {
+  font-size: 2.2rem;
+  color: #00f0ff;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+}
+
+.final-message p {
+  font-size: 1.1rem;
+  color: #aaa;
+}
+
+/* Fade out of earlier elements */
+.splash-container.fade-out-elements > *:not(.final-message) {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes showFinal {
+  to { opacity: 1; }
+}

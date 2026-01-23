@@ -1,0 +1,119 @@
+.splash {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  overflow: hidden;
+}
+
+.stack {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+/* Common layer layout */
+.layer {
+  position: absolute;
+  width: min(48vw, 520px);
+  height: auto;
+  opacity: 0;
+  will-change: opacity, transform;
+  transform: translateY(0);
+}
+
+/* Blend modes */
+.screen {
+  mix-blend-mode: screen;
+}
+
+/* Step-driven visibility */
+.splash.DIAMOND_IN .diamond,
+.splash.HALO_IN .diamond,
+.splash.LINES_IN .diamond,
+.splash.DOLLAR_IN .diamond,
+.splash.PROCESS_IN .diamond,
+.splash.IDLE .diamond {
+  animation: fadeIn 800ms ease-out forwards;
+  animation-delay: 0ms;
+}
+
+.splash.HALO_IN .halo,
+.splash.LINES_IN .halo,
+.splash.DOLLAR_IN .halo,
+.splash.PROCESS_IN .halo,
+.splash.IDLE .halo {
+  animation: fadeIn 300ms ease-out forwards;
+}
+
+.splash.LINES_IN .lines,
+.splash.DOLLAR_IN .lines,
+.splash.PROCESS_IN .lines,
+.splash.IDLE .lines {
+  animation: fadeIn 300ms ease-out forwards;
+}
+
+.splash.DOLLAR_IN .dollar,
+.splash.PROCESS_IN .dollar,
+.splash.IDLE .dollar {
+  animation: fadeIn 250ms ease-out forwards;
+}
+
+/* Bottom process row */
+.process {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 56px;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  pointer-events: none;
+}
+
+.node {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  border: 2px solid rgba(140, 255, 255, 0.35);
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+}
+
+.node.in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.node.active {
+  box-shadow:
+    0 0 12px rgba(140, 255, 255, 0.45),
+    0 0 28px rgba(140, 255, 255, 0.25);
+  border-color: rgba(140, 255, 255, 0.75);
+}
+
+.icon {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  color: rgba(220, 255, 255, 0.92);
+  text-transform: uppercase;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Optional: subtle idle breathing of halo once IDLE */
+.splash.IDLE .halo {
+  animation: breathe 7s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.85; }
+  50%      { opacity: 1; }
+}
